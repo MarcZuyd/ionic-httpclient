@@ -1,14 +1,52 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-title>
-      Coinmarketcap top 10
+      <ion-item lines="none" color="light">
+        <ion-thumbnail id="logo">
+          <ion-img src="../../assets/images/cmc.png"></ion-img>   
+        </ion-thumbnail>      
+        <ion-label><h2>Coinmarketcap top 10</h2></ion-label>  
+      </ion-item>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-list *ngIf="config!=null">
+  <ion-list *ngIf="top10!=null">
+    <ion-item-sliding *ngFor="let position of cmcTop10Id; let i = index">
+      <ion-item color="secondary" lines="inline">
+        <ion-avatar size="small" slot="start">
+          <ion-img src="{{config.data[position].logo}}"></ion-img>
+        </ion-avatar>
+        <ion-label color="primary">
+          <ion-note color="medium" slot="start">#{{ i+1 }}</ion-note>
+          <h2>{{ top10.data[i].name }}</h2>        
+        </ion-label>
+
+        <ion-button fill="outline" slot="end">Market</ion-button>
+      </ion-item>  
+      <ion-item-options side="start">
+        <ion-item-option color="none" href="{{config.data[position].urls.website}}" side="start">
+          <ion-button fill="clear" color="primary">
+            <ion-icon size="large" name="desktop"></ion-icon>
+          </ion-button>
+        </ion-item-option>
+
+        <ion-item-option color="none" href="{{config.data[position].urls.twitter}}" >
+          <ion-button fill="clear"  color="primary">
+            <ion-icon size="large" name="logo-twitter"></ion-icon>
+          </ion-button>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  
+
+  </ion-list>
+
+
+
+  <ion-list *ngIf="config!=null&&showListById">
     <ion-item-sliding *ngFor="let position of cmcPositions">
       <ion-item color="secondary" lines="inset">
         
@@ -49,4 +87,5 @@
 
   
   </ion-list>
+  
 </ion-content>
