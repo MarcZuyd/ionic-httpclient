@@ -1,12 +1,52 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Coinmarketcap top 10
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content>
+
+  <ion-list *ngIf="config!=null">
+    <ion-item-sliding *ngFor="let position of cmcPositions">
+      <ion-item color="secondary" lines="inset">
+        
+        <ion-thumbnail slot="start">
+            <ion-img src="{{config.data[position].logo}}"></ion-img>
+        </ion-thumbnail>
+        <ion-label color="light">
+          <ion-note color="medium" slot="start">{{ config.data[position].id }}</ion-note>
+          <h1>{{ config.data[position].name }}</h1>        
+        </ion-label>
+
+        <ion-button fill="outline" slot="end">Market</ion-button>
+
+      </ion-item>
+
+      <ion-item-options side="start">
+        <ion-item-option color="none">
+          <ion-button fill="clear" href="{{ config.data[position].urls.website }}" color="primary">
+            <ion-icon size="large" name="desktop"></ion-icon>
+          </ion-button>
+        </ion-item-option>
+
+        <ion-item-option color="none" >
+          <ion-button fill="clear" href="{{ config.data[position].urls.twitter }}" color="primary">
+            <ion-icon size="large" name="logo-twitter"></ion-icon>
+          </ion-button>
+        </ion-item-option>
+
+
+        <ion-item-option color="none">
+          <ion-button fill="clear" href="{{ config.data[position].urls.chat }}" color="primary">
+            <ion-icon size="large" name="chatboxes"></ion-icon>
+          </ion-button>
+        </ion-item-option>
+
+      </ion-item-options>      
+    </ion-item-sliding>
+
+  
+  </ion-list>
 </ion-content>

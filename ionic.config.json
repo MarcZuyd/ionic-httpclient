@@ -1,5 +1,7 @@
 {
   "name": "ionic-http",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

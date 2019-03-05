@@ -3,28 +3,31 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+  --ion-background-color: black;
+  --ion-text-color: rgb(195, 218, 204);
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #28c469;
   --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast: #000000;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
-  --ion-color-secondary: #0cd1e8;
-  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary: #002b23;
+  --ion-color-secondary-rgb: 0, 0, 0;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-shade: #11474d;
   --ion-color-secondary-tint: #24d6ea;
 
   /** tertiary **/
-  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary: url('http://media.idownloadblog.com/wp-content/uploads/2016/06/iOS10-iPhone-wallpaper-Gradient-03-kiwimanjaro.png');
   --ion-color-tertiary-rgb: 112, 68, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-shade: #1d6ca0;
   --ion-color-tertiary-tint: #7e57ff;
 
   /** success **/
@@ -60,7 +63,7 @@
   --ion-color-dark-tint: #383a3e;
 
   /** medium **/
-  --ion-color-medium: #989aa2;
+  --ion-color-medium: #ffffff;
   --ion-color-medium-rgb: 152, 154, 162;
   --ion-color-medium-contrast: #ffffff;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
@@ -68,7 +71,7 @@
   --ion-color-medium-tint: #a2a4ab;
 
   /** light **/
-  --ion-color-light: #f4f5f8;
+  --ion-color-light: #ffffff;
   --ion-color-light-rgb: 244, 244, 244;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;

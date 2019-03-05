@@ -1,0 +1,387 @@
+{
+    "status": {
+        "timestamp": "2019-03-04T18:19:16.759Z",
+        "error_code": 0,
+        "error_message": null,
+        "elapsed": 5,
+        "credit_count": 1
+    },
+    "data": {
+        "1": {
+            "urls": {
+                "website": [
+                    "https://bitcoin.org/"
+                ],
+                "twitter": [],
+                "reddit": [
+                    "https://reddit.com/r/bitcoin"
+                ],
+                "message_board": [
+                    "https://bitcointalk.org"
+                ],
+                "announcement": [],
+                "chat": [],
+                "explorer": [
+                    "https://blockchain.info/",
+                    "https://live.blockcypher.com/btc/",
+                    "https://blockchair.com/bitcoin"
+                ],
+                "source_code": [
+                    "https://github.com/bitcoin/"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+            "id": 1,
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "slug": "bitcoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "2": {
+            "urls": {
+                "website": [
+                    "https://litecoin.com"
+                ],
+                "twitter": [
+                    "https://twitter.com/LitecoinProject"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/litecoin"
+                ],
+                "message_board": [
+                    "https://litecointalk.io/"
+                ],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=47417.0"
+                ],
+                "chat": [
+                    "https://telegram.me/litecoin"
+                ],
+                "explorer": [
+                    "https://blockchair.com/litecoin",
+                    "https://chainz.cryptoid.info/ltc/",
+                    "http://explorer.litecoin.net/chain/Litecoin"
+                ],
+                "source_code": [
+                    "https://github.com/litecoin-project/litecoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/2.png",
+            "id": 2,
+            "name": "Litecoin",
+            "symbol": "LTC",
+            "slug": "litecoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "3": {
+            "urls": {
+                "website": [
+                    "https://www.namecoin.org/"
+                ],
+                "twitter": [
+                    "https://twitter.com/Namecoin"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/namecoin"
+                ],
+                "message_board": [],
+                "announcement": [
+                    "https://bitcointalk.org/?topic=6017.0"
+                ],
+                "chat": [
+                    "https://telegram.me/namecoin"
+                ],
+                "explorer": [
+                    "https://namecoin.cyphrs.com/",
+                    "https://namecha.in/",
+                    "https://nmc.tokenview.com/"
+                ],
+                "source_code": [
+                    "https://github.com/namecoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3.png",
+            "id": 3,
+            "name": "Namecoin",
+            "symbol": "NMC",
+            "slug": "namecoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "4": {
+            "urls": {
+                "website": [
+                    "http://www.terracoin.io/"
+                ],
+                "twitter": [
+                    "https://twitter.com/Terracoin_TRC"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/terracoin"
+                ],
+                "message_board": [],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=1364146.0"
+                ],
+                "chat": [
+                    "https://t.me/terracoin",
+                    "https://mattermost.terracoin.io/"
+                ],
+                "explorer": [
+                    "https://insight.terracoin.io/",
+                    "https://explorer.terracoin.io/chain/Terracoin"
+                ],
+                "source_code": [
+                    "https://github.com/terracoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/4.png",
+            "id": 4,
+            "name": "Terracoin",
+            "symbol": "TRC",
+            "slug": "terracoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "5": {
+            "urls": {
+                "website": [
+                    "http://www.peercoin.net"
+                ],
+                "twitter": [
+                    "https://twitter.com/PeercoinPPC"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/peercoin"
+                ],
+                "message_board": [
+                    "https://talk.peercoin.net"
+                ],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=101820.0"
+                ],
+                "chat": [
+                    "https://t.me/peercoin",
+                    "https://discord.gg/m294ReV"
+                ],
+                "explorer": [
+                    "https://chainz.cryptoid.info/ppc/",
+                    "https://explorer.peercoin.net/",
+                    "https://www.coinexplorer.net/PPC"
+                ],
+                "source_code": [
+                    "https://github.com/peercoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/5.png",
+            "id": 5,
+            "name": "Peercoin",
+            "symbol": "PPC",
+            "slug": "peercoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "6": {
+            "urls": {
+                "website": [
+                    "http://novacoin.org"
+                ],
+                "twitter": [],
+                "reddit": [
+                    "https://reddit.com/r/Novacoin"
+                ],
+                "message_board": [],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=143221.0"
+                ],
+                "chat": [],
+                "explorer": [
+                    "https://explorer.novaco.in/"
+                ],
+                "source_code": [
+                    "https://github.com/novacoin-project/novacoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/6.png",
+            "id": 6,
+            "name": "Novacoin",
+            "symbol": "NVC",
+            "slug": "novacoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "7": {
+            "urls": {
+                "website": [
+                    "http://devcoin.org"
+                ],
+                "twitter": [
+                    "https://twitter.com/devtome"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/devcoin"
+                ],
+                "message_board": [],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=233997.0"
+                ],
+                "chat": [],
+                "explorer": [
+                    "http://node1.devcoin.cloud"
+                ],
+                "source_code": [
+                    "https://github.com/devcoin/core"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/7.png",
+            "id": 7,
+            "name": "Devcoin",
+            "symbol": "DVC",
+            "slug": "devcoin",
+            "date_added": "2013-04-28T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "8": {
+            "urls": {
+                "website": [
+                    "http://feathercoin.com"
+                ],
+                "twitter": [
+                    "https://twitter.com/Feathercoin"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/FeatherCoin"
+                ],
+                "message_board": [
+                    "https://forum.feathercoin.com"
+                ],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=178286.0"
+                ],
+                "chat": [
+                    "https://telegram.me/feathercoinofficial"
+                ],
+                "explorer": [
+                    "http://explorer.feathercoin.com/",
+                    "https://chainz.cryptoid.info/ftc/",
+                    "https://fsight.chain.tips/"
+                ],
+                "source_code": [
+                    "https://github.com/FeatherCoin/Feathercoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/8.png",
+            "id": 8,
+            "name": "Feathercoin",
+            "symbol": "FTC",
+            "slug": "feathercoin",
+            "date_added": "2013-05-03T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "9": {
+            "urls": {
+                "website": [
+                    "https://www.mincoin.us/"
+                ],
+                "twitter": [
+                    "https://twitter.com/mincoinus"
+                ],
+                "reddit": [
+                    "https://reddit.com/r/MinCoin"
+                ],
+                "message_board": [
+                    "https://www.mincoinforum.com"
+                ],
+                "announcement": [
+                    "https://bitcointalk.org/index.php?topic=165397.0"
+                ],
+                "chat": [],
+                "explorer": [
+                    "http://mnc.cryptoexplore.com/",
+                    "https://mincoinblockexplorer.com/"
+                ],
+                "source_code": [
+                    "https://github.com/mincoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/9.png",
+            "id": 9,
+            "name": "Mincoin",
+            "symbol": "MNC",
+            "slug": "mincoin",
+            "date_added": "2013-05-03T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        },
+        "10": {
+            "urls": {
+                "website": [
+                    "http://freico.in"
+                ],
+                "twitter": [
+                    "https://twitter.com/Freicoin"
+                ],
+                "reddit": [],
+                "message_board": [
+                    "https://freicoinalliance.com/"
+                ],
+                "announcement": [],
+                "chat": [],
+                "explorer": [
+                    "http://freicoin.info/chain/Freicoin"
+                ],
+                "source_code": [
+                    "https://github.com/freicoin/freicoin"
+                ]
+            },
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/10.png",
+            "id": 10,
+            "name": "Freicoin",
+            "symbol": "FRC",
+            "slug": "freicoin",
+            "date_added": "2013-05-03T00:00:00.000Z",
+            "tags": [
+                "mineable"
+            ],
+            "platform": null,
+            "category": "coin"
+        }
+    }
+}
