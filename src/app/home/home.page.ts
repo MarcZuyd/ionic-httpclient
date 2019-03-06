@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Config } from '../interfaces/config';
 import { Coinmarketcap } from '../interfaces/coinmarketcap';
+import { Platform, LoadingController } from '@ionic/angular';
+import { load } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-home',
@@ -13,32 +15,46 @@ export class HomePage implements OnInit {
   config: Config;
   top10: Coinmarketcap;
   headers: string[];
-  response = false;
-
-  cmcPositions = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 
   cmcTop10Id = [];
 
   showListById = false;
   showTop10 = true;
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, private platform: Platform, public loadingController: LoadingController) {}
 
   ngOnInit() {
-    // this.showConfig();
-    // this.showCMClist();
-    this.getConfig();
-    this.getData();
-
+   // this.showCMClist();
+   // this.showConfig();
+    this.platform.ready().then(() => {
+      this.getData();
+    });
     console.log('init page');
   }
 
+  doRefresh(event) {
+    console.log('Begin async operation');
+    this.getData();
+    event.target.complete();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: ''
+    });
+    await loading.present().then(() => {
+      this.getData();
+      loading.dismiss();
+    });
+    console.log('Loading dismissed!');
+  }
+
+  // Native Android Http
   getConfig() {
-    this.http.getConfigNative()
+    this.http.getConfigNative(this.cmcTop10Id)
     .then(response => {
       console.log('Native config');
       this.config = JSON.parse(response.data);
-      console.log(this.config);
     })
     .catch(error => {
       console.log(error.status);
@@ -46,23 +62,21 @@ export class HomePage implements OnInit {
       console.log(error.headers);
     });
   }
+
+  // Native Android Http
   getData() {
     this.http.getDataNative()
     .then(response => {
       console.log('Native data');
       this.top10 = JSON.parse(response.data);
-      console.log(this.top10);
       this.setCoinIds();
+      this.getConfig();
     })
     .catch(error => {
       console.log(error.status);
       console.log(error.error);
       console.log(error.headers);
     });
-  }
-
-  toggleList() {
-
   }
 
   showConfig() {
@@ -71,7 +85,9 @@ export class HomePage implements OnInit {
         this.config = {
           status: response['status'],
           data:  response['data']
-        });
+        },
+        (err) => console.log(err),
+        () => console.log());
   }
 
   showCMClist() {
@@ -95,19 +111,21 @@ export class HomePage implements OnInit {
           `${key}: ${resp.headers.get(key)}`);
         // access the body directly, which is typed as `Config`.
         this.config = { ... resp.body };
-        this.response = true;
       });
   }
 
   setCoinIds() {
     this.cmcTop10Id = [];
     for (const data of this.top10.data) {
-      console.log(data);
+      // console.log(data.name + ' ' + data.id);
       this.cmcTop10Id.push(data.id);
+      // console.log(this.cmcTop10Id);
     }
   }
 
   buttonClick() {
+    this.getConfig();
+    this.getData();
   }
 }
 

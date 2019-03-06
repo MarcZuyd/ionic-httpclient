@@ -5,26 +5,48 @@
         <ion-thumbnail id="logo">
           <ion-img src="../../assets/images/cmc.png"></ion-img>   
         </ion-thumbnail>      
-        <ion-label><h2>Coinmarketcap top 10</h2></ion-label>  
+        <ion-label><h2>CoinMarketCap</h2></ion-label>  
       </ion-item>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-list *ngIf="top10!=null">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="config!=null">
     <ion-item-sliding *ngFor="let position of cmcTop10Id; let i = index">
       <ion-item color="secondary" lines="inline">
         <ion-avatar size="small" slot="start">
           <ion-img src="{{config.data[position].logo}}"></ion-img>
         </ion-avatar>
         <ion-label color="primary">
-          <ion-note color="medium" slot="start">#{{ i+1 }}</ion-note>
-          <h2>{{ top10.data[i].name }}</h2>        
+
+          <ion-grid>
+            
+            <ion-row>
+              <ion-col>
+                <h2><ion-note color="medium" slot="start">{{ i+1 }}.</ion-note>&nbsp;{{ top10.data[i].name }}</h2>
+              </ion-col>
+
+              <ion-col [ngClass]="{'red' : top10.data[i].quote.EUR.percent_change_24h<0, 'green': top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
+                <h1>{{ top10.data[i].quote.EUR.price | currency: 'EUR'}}</h1> 
+              </ion-col>
+
+            </ion-row>
+            <ion-row>
+              <ion-col text-start>
+                <h3>{{ top10.data[i].quote.EUR.market_cap | currency: 'EUR' }}</h3>
+              </ion-col>
+              <ion-col [ngClass]="{'red' : top10.data[i].quote.EUR.percent_change_24h<0, 'green': top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
+                {{ top10.data[i].quote.EUR.percent_change_24h | number:'.2-2' }}%
+              </ion-col>
+            </ion-row>
+          </ion-grid>  
         </ion-label>
 
-        <ion-button fill="outline" slot="end">Market</ion-button>
+        
       </ion-item>  
       <ion-item-options side="start">
         <ion-item-option color="none" href="{{config.data[position].urls.website}}" side="start">
@@ -75,17 +97,10 @@
           </ion-button>
         </ion-item-option>
 
-
-        <ion-item-option color="none">
-          <ion-button fill="clear" href="{{ config.data[position].urls.chat }}" color="primary">
-            <ion-icon size="large" name="chatboxes"></ion-icon>
-          </ion-button>
-        </ion-item-option>
-
       </ion-item-options>      
     </ion-item-sliding>
 
   
   </ion-list>
-  
+
 </ion-content>
