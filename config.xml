@@ -83,7 +83,7 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-advanced-http" spec="2.0.5" />
-    <allow-navigation href="http://192.168.178.116:8100" sessionid="acd10a88" />
+    <allow-navigation href="http://192.168.178.116:8100" sessionid="6ed4f644" />
     <engine name="android" spec="7.1.4" />
     <engine name="browser" spec="5.0.4" />
 </widget>

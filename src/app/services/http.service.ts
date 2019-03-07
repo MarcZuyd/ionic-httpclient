@@ -25,7 +25,7 @@ export class HttpService {
 
   liveConfigUrl = this.cmcBaseUrl + 'info?id=1,1027,52,1765,2,1831,825,1839,512,1958' + this.cmcApiKey;
 
-  liveUrl = this.cmcBaseUrl + 'listings/latest?sort=market_cap&start=1&limit=10&cryptocurrency_type=all&convert=EUR' + this.cmcApiKey;
+  liveUrl = this.cmcBaseUrl + 'listings/latest?sort=market_cap&start=1&limit=30&cryptocurrency_type=all&convert=EUR' + this.cmcApiKey;
 
   getConfig() {
     return this.http.get<Config>(this.configUrl);
@@ -48,6 +48,7 @@ export class HttpService {
   }
 
   getDataNative() {
+    console.log('REQUEST DATA NATIVE: ' + this.liveUrl);
     return this.nativeHttp.get(this.liveUrl, {}, {});
 
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
+import { MarketDataService } from '../services/market-data.service';
 import { Config } from '../interfaces/config';
 import { Coinmarketcap } from '../interfaces/coinmarketcap';
 import { Platform, LoadingController } from '@ionic/angular';
@@ -21,13 +22,18 @@ export class HomePage implements OnInit {
   showListById = false;
   showTop10 = true;
 
-  constructor(private http: HttpService, private platform: Platform, public loadingController: LoadingController) {}
+  constructor(
+    private http: HttpService,
+    private platform: Platform,
+    private data: MarketDataService,
+    public loadingController: LoadingController
+    ) {}
 
   ngOnInit() {
-   // this.showCMClist();
-   // this.showConfig();
+    this.showCMClist();
+    this.showConfig();
     this.platform.ready().then(() => {
-      this.getData();
+      // this.getData();
     });
     console.log('init page');
   }
@@ -51,10 +57,10 @@ export class HomePage implements OnInit {
 
   // Native Android Http
   getConfig() {
-    this.http.getConfigNative(this.cmcTop10Id)
+    this.http.getConfigNative(this.data.cmcTop10Id)
     .then(response => {
       console.log('Native config');
-      this.config = JSON.parse(response.data);
+      this.data.config = JSON.parse(response.data);
     })
     .catch(error => {
       console.log(error.status);
@@ -68,7 +74,7 @@ export class HomePage implements OnInit {
     this.http.getDataNative()
     .then(response => {
       console.log('Native data');
-      this.top10 = JSON.parse(response.data);
+      this.data.top10 = JSON.parse(response.data);
       this.setCoinIds();
       this.getConfig();
     })
@@ -82,7 +88,7 @@ export class HomePage implements OnInit {
   showConfig() {
     this.http.getConfig()
       .subscribe((response: Config) =>
-        this.config = {
+        this.data.config = {
           status: response['status'],
           data:  response['data']
         },
@@ -93,7 +99,7 @@ export class HomePage implements OnInit {
   showCMClist() {
     const req = this.http.getCMCtop10();
     req.subscribe(
-      (response: Coinmarketcap) => this.top10 = {
+      (response: Coinmarketcap) => this.data.top10 = {
         status: response['status'],
         data:  response['data'],
       },
@@ -115,10 +121,10 @@ export class HomePage implements OnInit {
   }
 
   setCoinIds() {
-    this.cmcTop10Id = [];
-    for (const data of this.top10.data) {
+    this.data.cmcTop10Id = [];
+    for (const data of this.data.top10.data) {
       // console.log(data.name + ' ' + data.id);
-      this.cmcTop10Id.push(data.id);
+      this.data.cmcTop10Id.push(data.id);
       // console.log(this.cmcTop10Id);
     }
   }

@@ -5,7 +5,7 @@
         <ion-thumbnail id="logo">
           <ion-img src="../../assets/images/cmc.png"></ion-img>   
         </ion-thumbnail>      
-        <ion-label><h2>CoinMarketCap</h2></ion-label>  
+        <ion-label><h1>CoinMarketCap</h1></ion-label>  
       </ion-item>
     </ion-title>
   </ion-toolbar>
@@ -15,11 +15,11 @@
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list *ngIf="config!=null">
-    <ion-item-sliding *ngFor="let position of cmcTop10Id; let i = index">
-      <ion-item color="secondary" lines="inline">
+  <ion-list *ngIf="this.data.config!=null">
+
+      <ion-item *ngFor="let position of this.data.cmcTop10Id; let i = index" routerLink="/info/{{this.data.config.data[position].id}}" color="secondary" lines="inline" detail>
         <ion-avatar size="small" slot="start">
-          <ion-img src="{{config.data[position].logo}}"></ion-img>
+          <ion-img src="{{this.data.config.data[position].logo}}"></ion-img>
         </ion-avatar>
         <ion-label color="primary">
 
@@ -27,20 +27,20 @@
             
             <ion-row>
               <ion-col>
-                <h2><ion-note color="medium" slot="start">{{ i+1 }}.</ion-note>&nbsp;{{ top10.data[i].name }}</h2>
+                <h2><ion-note color="medium" slot="start">{{ i+1 }}.</ion-note>&nbsp;{{ this.data.top10.data[i].name }}</h2>
               </ion-col>
 
-              <ion-col [ngClass]="{'red' : top10.data[i].quote.EUR.percent_change_24h<0, 'green': top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
-                <h1>{{ top10.data[i].quote.EUR.price | currency: 'EUR'}}</h1> 
+              <ion-col [ngClass]="{'red' : this.data.top10.data[i].quote.EUR.percent_change_24h<0, 'green': this.data.top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
+                <h2>{{ this.data.top10.data[i].quote.EUR.price | currency: 'EUR'}}</h2> 
               </ion-col>
 
             </ion-row>
             <ion-row>
               <ion-col text-start>
-                <h3>{{ top10.data[i].quote.EUR.market_cap | currency: 'EUR' }}</h3>
+                <h3>{{ this.data.top10.data[i].quote.EUR.market_cap | currency: 'EUR' }}</h3>
               </ion-col>
-              <ion-col [ngClass]="{'red' : top10.data[i].quote.EUR.percent_change_24h<0, 'green': top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
-                {{ top10.data[i].quote.EUR.percent_change_24h | number:'.2-2' }}%
+              <ion-col [ngClass]="{'red' : this.data.top10.data[i].quote.EUR.percent_change_24h<0, 'green': this.data.top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
+                <h3>{{ this.data.top10.data[i].quote.EUR.percent_change_24h | number:'.2-2' }}%</h3>
               </ion-col>
             </ion-row>
           </ion-grid>  
@@ -48,36 +48,23 @@
 
         
       </ion-item>  
-      <ion-item-options side="start">
-        <ion-item-option color="none" href="{{config.data[position].urls.website}}" side="start">
-          <ion-button fill="clear" color="primary">
-            <ion-icon size="large" name="desktop"></ion-icon>
-          </ion-button>
-        </ion-item-option>
 
-        <ion-item-option color="none" href="{{config.data[position].urls.twitter}}" >
-          <ion-button fill="clear"  color="primary">
-            <ion-icon size="large" name="logo-twitter"></ion-icon>
-          </ion-button>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
   
 
   </ion-list>
 
 
 
-  <ion-list *ngIf="config!=null&&showListById">
+  <ion-list *ngIf="this.data.config!=null&&showListById">
     <ion-item-sliding *ngFor="let position of cmcPositions">
       <ion-item color="secondary" lines="inset">
         
         <ion-thumbnail slot="start">
-            <ion-img src="{{config.data[position].logo}}"></ion-img>
+            <ion-img src="{{this.data.config.data[position].logo}}"></ion-img>
         </ion-thumbnail>
         <ion-label color="light">
-          <ion-note color="medium" slot="start">{{ config.data[position].id }}</ion-note>
-          <h1>{{ config.data[position].name }}</h1>        
+          <ion-note color="medium" slot="start">{{ this.data.config.data[position].id }}</ion-note>
+          <h1>{{ this.data.config.data[position].name }}</h1>        
         </ion-label>
 
         <ion-button fill="outline" slot="end">Market</ion-button>
@@ -86,13 +73,13 @@
 
       <ion-item-options side="start">
         <ion-item-option color="none">
-          <ion-button fill="clear" href="{{ config.data[position].urls.website }}" color="primary">
+          <ion-button fill="clear" href="{{ this.data.config.data[position].urls.website }}" color="primary">
             <ion-icon size="large" name="desktop"></ion-icon>
           </ion-button>
         </ion-item-option>
 
         <ion-item-option color="none" >
-          <ion-button fill="clear" href="{{ config.data[position].urls.twitter }}" color="primary">
+          <ion-button fill="clear" href="{{ this.data.config.data[position].urls.twitter }}" color="primary">
             <ion-icon size="large" name="logo-twitter"></ion-icon>
           </ion-button>
         </ion-item-option>
