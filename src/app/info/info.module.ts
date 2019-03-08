@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
+import { ComponentsModule } from '../components/components.module';
 import { InfoPage } from './info.page';
-
+import { ChartComponent } from '../components/chart/chart.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,8 +19,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [InfoPage]
+  declarations: [InfoPage, ChartComponent]
 })
 export class InfoPageModule {}

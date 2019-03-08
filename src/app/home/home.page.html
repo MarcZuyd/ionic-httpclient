@@ -1,4 +1,4 @@
-<ion-header>
+<ion-content>
   <ion-toolbar color="light">
     <ion-title>
       <ion-item lines="none" color="light">
@@ -9,45 +9,44 @@
       </ion-item>
     </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
+  
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+
   <ion-list *ngIf="this.data.config!=null">
 
-      <ion-item *ngFor="let position of this.data.cmcTop10Id; let i = index" routerLink="/info/{{this.data.config.data[position].id}}" color="secondary" lines="inline" detail>
-        <ion-avatar size="small" slot="start">
-          <ion-img src="{{this.data.config.data[position].logo}}"></ion-img>
-        </ion-avatar>
-        <ion-label color="primary">
+    <ion-item *ngFor="let position of this.data.cmcTop10Id; let i = index" routerLink="/info/{{this.data.config.data[position].id}}" color="secondary" lines="inline" detail>
+      <ion-avatar size="small" slot="start">
+        <ion-img src="{{this.data.config.data[position].logo}}"></ion-img>
+      </ion-avatar>
+      <ion-label color="primary">
 
-          <ion-grid>
-            
-            <ion-row>
-              <ion-col>
-                <h2><ion-note color="medium" slot="start">{{ i+1 }}.</ion-note>&nbsp;{{ this.data.top10.data[i].name }}</h2>
-              </ion-col>
+        <ion-grid>
+          
+          <ion-row>
+            <ion-col>
+              <h2><ion-note color="medium" slot="start">{{ i+1 }}.</ion-note>&nbsp;{{ this.data.top10.data[i].name }}</h2>
+            </ion-col>
 
-              <ion-col [ngClass]="{'red' : this.data.top10.data[i].quote.EUR.percent_change_24h<0, 'green': this.data.top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
-                <h2>{{ this.data.top10.data[i].quote.EUR.price | currency: 'EUR'}}</h2> 
-              </ion-col>
+            <ion-col [ngClass]="{'red' : this.data.top10.data[i].quote.EUR.percent_change_24h<0, 'green': this.data.top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
+              <h2>{{ this.data.top10.data[i].quote.EUR.price | currency: 'EUR'}}</h2> 
+            </ion-col>
 
-            </ion-row>
-            <ion-row>
-              <ion-col text-start>
-                <h3>{{ this.data.top10.data[i].quote.EUR.market_cap | currency: 'EUR' }}</h3>
-              </ion-col>
-              <ion-col [ngClass]="{'red' : this.data.top10.data[i].quote.EUR.percent_change_24h<0, 'green': this.data.top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
-                <h3>{{ this.data.top10.data[i].quote.EUR.percent_change_24h | number:'.2-2' }}%</h3>
-              </ion-col>
-            </ion-row>
-          </ion-grid>  
-        </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-col text-start>
+              <h3>{{ this.data.top10.data[i].quote.EUR.market_cap | currency: 'EUR' }}</h3>
+            </ion-col>
+            <ion-col [ngClass]="{'red' : this.data.top10.data[i].quote.EUR.percent_change_24h<0, 'green': this.data.top10.data[i].quote.EUR.percent_change_24h>0 }" text-end>
+              <h3>{{ this.data.top10.data[i].quote.EUR.percent_change_24h | number:'.2-2' }}%</h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+      </ion-label>
 
-        
-      </ion-item>  
+      
+    </ion-item>  
 
   
 

@@ -41,12 +41,14 @@ export class HomePage implements OnInit {
   doRefresh(event) {
     console.log('Begin async operation');
     this.getData();
-    event.target.complete();
+    setTimeout(() => {
+      event.target.complete();
+    }, 1000);
   }
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: ''
+      message: 'Downloading market data'
     });
     await loading.present().then(() => {
       this.getData();

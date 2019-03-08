@@ -7,24 +7,28 @@
 
 
 
-  <div *ngIf="config!=null">
+  <div *ngIf="showPage">
 
-    <ion-item text-end color="primary" lines="none">
+    <ion-toolbar color="primary">
       <ion-buttons slot="start">
         <ion-button  [routerLink]="[ '/home' ]" routerDirection="back">
-          <ion-icon color="light" name="arrow-round-back">Back</ion-icon>
+          <ion-icon size="default" name="arrow-round-back">Back</ion-icon>
         </ion-button>
       </ion-buttons>
-      <h1>{{ top10.data[coinPosition].name}}</h1>    
-      <ion-thumbnail slot="end" >
+      <ion-buttons slot="end" >
+        <ion-button (click)="presentPopover($event)">
+          <ion-icon size="default" name="more"></ion-icon>
+        </ion-button>      
+      </ion-buttons>
+      <ion-label color="light"><h1>{{ top10.data[coinPosition].name}}</h1>    </ion-label> 
+      <ion-thumbnail id="logo" slot="start" >
         <ion-img src="{{config.data[currentCoin].logo}}"></ion-img>  
       </ion-thumbnail>
 
       
-    </ion-item>
-    <ion-item  color="primary">
-      <ion-img src="./assets/images/chart.png"></ion-img>
-
+    </ion-toolbar>
+    <ion-item lines="none" color="tertiary">
+      <app-chart ></app-chart>
     </ion-item>
 
 
@@ -50,7 +54,7 @@
           </ion-item>
           <ion-item>
             <ion-label><h3>Change 7d</h3></ion-label>
-            <ion-label [ngClass]="{'red' : top10.data[coinPosition].quote.EUR.percent_change_24h<0, 'green': top10.data[coinPosition].quote.EUR.percent_change_24h>0 }" text-end color="primary"><h2>{{ top10.data[coinPosition].quote.EUR.percent_change_7d }}%</h2></ion-label>
+            <ion-label [ngClass]="{'red' : top10.data[coinPosition].quote.EUR.percent_change_7d<0, 'green': top10.data[coinPosition].quote.EUR.percent_change_7d>0 }" text-end color="primary"><h2>{{ top10.data[coinPosition].quote.EUR.percent_change_7d }}%</h2></ion-label>
           </ion-item>
           <ion-item>
             <ion-label><h3>Market cap</h3></ion-label>
@@ -60,6 +64,11 @@
 
       </ion-card-content>
     </ion-card>
-          
+    
+    <ion-list>
+      <ion-item *ngFor="let price of prices">
+        {{ price }}
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
